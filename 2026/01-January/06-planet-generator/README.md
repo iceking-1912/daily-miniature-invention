@@ -1,1 +1,41 @@
-# Text-Based Procedural Planet Generator  A Python-based utility that generates unique 2D planetary maps using multiple layers of smoothed random noise. By simulating elevation and humidity, the program creates a diverse range of biomes represented by ASCII characters.  ### 🪐 Overview This program uses a multi-layered approach to world-building. Instead of purely random characters, it simulates environmental factors to create realistic landmasses, oceans, and climate zones.    ### 🚀 Features * **Procedural Generation:** Every run with a new seed creates a completely unique world. * **Layered Noise:** Uses separate layers for **Elevation** (to define land vs. water) and **Humidity** (to define biomes like forests or deserts). * **Smoothing Algorithm:** Implements a multi-pass box blur to transform raw random noise into natural-looking, organic landmasses. * **Normalization:** Ensures that regardless of the random values generated, the map always utilizes the full range of biomes. * **Customizable:** Easily tweak constants like `WATER_LEVEL` or `MOUNTAIN_LEVEL` to create watery worlds or mountainous planets.  ### 🗺️ Map Legend The generator outputs a grid of characters representing the following terrain types:  | Symbol | Terrain | Description | | :--- | :--- | :--- | | `~` | **Deep Water** | Low elevation zones | | `.` | **Shallow Water** | Coastal regions | | `,` | **Grassland** | Standard land with moderate humidity | | `S` | **Desert** | Arid land with low humidity | | `F` | **Forest** | Lush land with high humidity | | `^` | **Mountain** | High elevation terrain | | `A` | **Snowy Peak** | Extreme elevation summits |  ### 🛠️ Technical Implementation 1.  **Noise Generation:** Creates a grid of random floats between 0 and 1. 2.  **Smoothing (Box Blur):** Calculates the average value of each cell's neighbors. Multiple iterations result in smoother, less "noisy" terrain. 3.  **Biome Logic:** Land biomes are determined by a combination of elevation and humidity:     * **Elevation** determines if a tile is Water, Land, or Mountain.     * **Humidity** determines if a Land tile is Desert, Grassland, or Forest.  ### 💻 How to Run Ensure you have Python installed. Save the code as `planet_generator.py` and run:  ```bash python planet_generator.py
+# Text-Based Procedural Planet Generator
+
+A Python-based utility that generates unique 2D planetary maps using multiple layers of smoothed random noise. By simulating elevation and humidity, the program creates a diverse range of biomes represented by ASCII characters.
+
+### 🪐 Overview
+This program uses a multi-layered approach to world-building. Instead of purely random characters, it simulates environmental factors to create realistic landmasses, oceans, and climate zones.
+
+
+
+### 🚀 Features
+* **Procedural Generation:** Every run with a new seed creates a completely unique world.
+* **Layered Noise:** Uses separate layers for **Elevation** (to define land vs. water) and **Humidity** (to define biomes like forests or deserts).
+* **Smoothing Algorithm:** Implements a multi-pass box blur to transform raw random noise into natural-looking, organic landmasses.
+* **Normalization:** Ensures that regardless of the random values generated, the map always utilizes the full range of biomes.
+* **Customizable:** Easily tweak constants like `WATER_LEVEL` or `MOUNTAIN_LEVEL` to create watery worlds or mountainous planets.
+
+### 🗺️ Map Legend
+The generator outputs a grid of characters representing the following terrain types:
+
+| Symbol | Terrain | Description |
+| :--- | :--- | :--- |
+| `~` | **Deep Water** | Low elevation zones |
+| `.` | **Shallow Water** | Coastal regions |
+| `,` | **Grassland** | Standard land with moderate humidity |
+| `S` | **Desert** | Arid land with low humidity |
+| `F` | **Forest** | Lush land with high humidity |
+| `^` | **Mountain** | High elevation terrain |
+| `A` | **Snowy Peak** | Extreme elevation summits |
+
+### 🛠️ Technical Implementation
+1.  **Noise Generation:** Creates a grid of random floats between 0 and 1.
+2.  **Smoothing (Box Blur):** Calculates the average value of each cell's neighbors. Multiple iterations result in smoother, less "noisy" terrain.
+3.  **Biome Logic:** Land biomes are determined by a combination of elevation and humidity:
+    * **Elevation** determines if a tile is Water, Land, or Mountain.
+    * **Humidity** determines if a Land tile is Desert, Grassland, or Forest.
+
+### 💻 How to Run
+Ensure you have Python installed. Save the code as `planet_generator.py` and run:
+
+```bash
+python planet_generator.py
